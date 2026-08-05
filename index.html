@@ -81,5 +81,75 @@ footer{padding:30px 44px;background:var(--ink);color:var(--paper);display:flex;j
       </article></div>
 <section class="close"><h2>Give your dog the best</h2><p>Start booking today for a happier, healthier pet.</p></section>
 
+<section class="wl" id="waitlist">
+  <h2 class="wl__heading">Join the waitlist</h2>
+  <p class="wl__blurb">Be the first to know when we launch.</p>
+  <form class="wl__form" id="wl-form" novalidate>
+    <input class="wl__input" id="wl-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+    <button class="wl__button" id="wl-submit" type="submit">Join</button>
+  </form>
+  <p class="wl__status" id="wl-status" role="status" aria-live="polite"></p>
+</section>
+<script>
+(function () {
+  var ENDPOINT = "https://wsiooezhhhstabvrcirz.supabase.co/rest/v1/waitlist";
+  var KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzaW9vZXpoaGhzdGFidnJjaXJ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4MDc3OTMsImV4cCI6MjA5NzM4Mzc5M30.uuPAgsJ6s4hbYcMkLwTZUbz28uJMyQQ3vmINBCp0LCY";
+  var form = document.getElementById("wl-form");
+  var input = document.getElementById("wl-email");
+  var button = document.getElementById("wl-submit");
+  var status = document.getElementById("wl-status");
+  var idle = button.textContent;
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    var email = (input.value || "").trim();
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      status.textContent = "Please enter a valid email address.";
+      status.className = "wl__status is-error";
+      return;
+    }
+
+    button.disabled = true;
+    button.textContent = "Adding…";
+    status.textContent = "";
+    status.className = "wl__status";
+
+    fetch(ENDPOINT, {
+      method: "POST",
+      headers: {
+        "apikey": KEY,
+        "Authorization": "Bearer " + KEY,
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify({ email: email })
+    })
+      .then(function (res) {
+        if (res.ok) {
+          form.style.display = "none";
+          status.textContent = "You're on the list. Thanks!";
+          status.className = "wl__status is-success";
+          return;
+        }
+        if (res.status === 409) {
+          status.textContent = "You're already on the list.";
+          status.className = "wl__status is-error";
+        } else {
+          status.textContent = "Something went wrong. Please try again.";
+          status.className = "wl__status is-error";
+        }
+        button.disabled = false;
+        button.textContent = idle;
+      })
+      .catch(function () {
+        status.textContent = "Network error. Please try again.";
+        status.className = "wl__status is-error";
+        button.disabled = false;
+        button.textContent = idle;
+      });
+  });
+})();
+</script>
 <footer><span>PawPal - Dog Grooming Made Easy</span><span>&copy; 2026</span></footer>
 </body></html>
