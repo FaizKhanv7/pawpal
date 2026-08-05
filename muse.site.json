@@ -1,0 +1,43 @@
+{
+  "idea": "dog grooming app",
+  "templateId": "bold",
+  "content": {
+    "siteKind": "product",
+    "title": "PawPal",
+    "tagline": "Grooming at your fingertips",
+    "intro": "Book and manage dog grooming appointments with local professionals.",
+    "sections": [
+      {
+        "title": "Find Groomers",
+        "body": "Search and filter groomers in your area by services and reviews."
+      },
+      {
+        "title": "Book Appointments",
+        "body": "Schedule and manage bookings directly through the app."
+      },
+      {
+        "title": "Grooming Services",
+        "body": "From nail trimming to full spa days, find the right care for your dog."
+      }
+    ],
+    "facts": [
+      {
+        "value": "500+",
+        "label": "Groomers available"
+      },
+      {
+        "value": "4.8/5",
+        "label": "Average rating"
+      }
+    ],
+    "cta": {
+      "label": "Download Now",
+      "note": "Available on iOS and Android"
+    },
+    "closing": {
+      "headline": "Give your dog the best",
+      "body": "Start booking today for a happier, healthier pet."
+    },
+    "footerNote": "PawPal - Dog Grooming Made Easy"
+  }
+}
