@@ -38,6 +38,14 @@
       "headline": "Give your dog the best",
       "body": "Start booking today for a happier, healthier pet."
     },
-    "footerNote": "PawPal - Dog Grooming Made Easy"
+    "footerNote": "PawPal - Dog Grooming Made Easy",
+    "waitlist": {
+      "restUrl": "https://wsiooezhhhstabvrcirz.supabase.co",
+      "anonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzaW9vZXpoaGhzdGFidnJjaXJ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4MDc3OTMsImV4cCI6MjA5NzM4Mzc5M30.uuPAgsJ6s4hbYcMkLwTZUbz28uJMyQQ3vmINBCp0LCY",
+      "table": "waitlist",
+      "heading": "Join the waitlist",
+      "blurb": "Be the first to know when we launch.",
+      "buttonLabel": "Join"
+    }
   }
 }
